@@ -59,8 +59,8 @@ public class AddressBookTest {
         Thread.sleep(2000);
 
         try {
-            driver.findElement(By.xpath("//*[@id=\"pane-0\"]/form/div[1]/div/div/input")).sendKeys("13002840927");//输入用户名
-            driver.findElement(By.xpath("//*[@id=\"pane-0\"]/form/div[2]/div/div/input")).sendKeys("dzj111");//输入用户密码
+            driver.findElement(By.xpath("//*[@id=\"pane-0\"]/form/div[1]/div/div/input")).sendKeys("18708762181");//输入用户名
+            driver.findElement(By.xpath("//*[@id=\"pane-0\"]/form/div[2]/div/div/input")).sendKeys("123456");//输入用户密码
             driver.findElement(By.xpath("//*[@id=\"pane-0\"]/form/div[3]/div/button")).click();//点击登录按钮
             System.out.println("用户已成功登录");
             Thread.sleep(2000);
