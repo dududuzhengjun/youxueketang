@@ -24,16 +24,13 @@ import java.util.concurrent.TimeUnit;
 public class EZ6Web {
 
 
-
-
-
         WebDriver driver=Driver.newInstance();
 
         @BeforeTest
         public void logIn() throws InterruptedException {
 
             driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-            driver.get("https://200000001-ez.sdndc.cn/login");//进入易证6web登录页
+            driver.get("https://200000001-ez.sdndc.cn/i/ez/business");//进入易证6web登录页
             System.out.println("成功打开易证6web后台开发环境");
             driver.manage().window().maximize();//浏览器最大化
 
@@ -43,13 +40,16 @@ public class EZ6Web {
             driver.findElement(By.xpath("//input[@placeholder=\"请输入密码\"]")).sendKeys("Dzj940927");
             driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
             System.out.println("用户登录成功");
-            Thread.sleep(1000);//线程休眠1000ms
+            Thread.sleep(5000);//线程休眠1000ms
         }
 
         @Test
         public void businessType() throws InterruptedException {
-            driver.findElement(By.xpath("//div[@data-menu-id=\"rc-menu-uuid-10966-4-/app\"]")).click();
-            driver.findElement(By.xpath("//li[@title=\"业务类型\"]")).click();
+            driver.findElement(By.xpath("//*[@id='root']/div[1]/section/section/section/main/div[1]/div/div[2]/div[1]/button/span")).click();
+            Thread.sleep(3000);//线程休眠1000ms
+            driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div/div[2]/div[2]/div/div[1]/fieldset/div[1]/span/div[2]/div[3]/div[1]/div/div/div[3]/span[3]/span/div/div/div/span/div")).click();
+//            driver.findElement(By.xpath("//div[@data-menu-id=\"rc-menu-uuid-10966-4-/app\"]")).click();
+//            driver.findElement(By.xpath("//li[@title=\"业务类型\"]")).click();
 
 
 
