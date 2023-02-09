@@ -43,7 +43,16 @@ public class WanWeb{
         //wan_web申办业务
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div/div/div/div/div[1]/div/div/div/div/div[2]/div[1]/a")).click(); //点击进入申办
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[1]/div[2]/div/div/div[2]/span[2]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[1]/div[2]/div/div/div[2]/span[2]/button")).click(); //点击右上角“开始申办”按钮
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[2]/div/div/div/div[1]/div/div")).click(); //点击第一个申办场景“公众买糖场景”
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[1]/div[2]/div/div/div[2]/span[2]/span/button")).click(); //点击右上角开始申办按钮
+        driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div[2]/div[4]/div[4]/div/h3")).click(); //点击选择大厅
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div[3]/button")).click(); //不选择团队直接点击申办按钮
+        Thread.sleep(2000);
+
 
 
 
