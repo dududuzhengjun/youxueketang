@@ -9,6 +9,7 @@ import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -26,31 +27,44 @@ public class WanWeb{
     @BeforeTest
     public void logIn() throws InterruptedException {
 
+        //这里实现登录wan_web
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        driver.get("https://200000001-zaixian.sdndc.cn/account/login");//进入wanweb登录页
+        //进入wanweb登录页
+        driver.get("https://200000001-zaixian.sdndc.cn/account/login");
         System.out.println("成功打开wanweb首页");
-        driver.manage().window().maximize();//浏览器最大化
 
+        //浏览器最大化
+        driver.manage().window().maximize();
+
+        //输入用户名密码后登录
         driver.findElement(By.xpath("//input[@placeholder=\"请输入用户名\"]")).sendKeys("13002840927");
         driver.findElement(By.xpath("//input[@placeholder=\"请输入密码\"]")).sendKeys("Dzj940927");
         driver.findElement(By.xpath("//button[@type=\"submit\"]")).click();
         System.out.println("用户登录成功");
-        Thread.sleep(5000);//线程休眠1000ms
+        Thread.sleep(5000);
     }
 
     @Test
-    public void application() throws InterruptedException {
-        //wan_web申办业务
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div/div/div/div/div[1]/div/div/div/div/div[2]/div[1]/a")).click(); //点击进入申办
+    public void application() throws InterruptedException, IOException {
+
+        //实现wan_web申办业务
+
+        //点击进入申办
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div/div/div/div/div[1]/div/div/div/div/div[2]/div[1]/a")).click();
         Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[1]/div[2]/div/div/div[2]/span[2]/button")).click(); //点击右上角“开始申办”按钮
+        //点击右上角“开始申办”按钮
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[1]/div[2]/div/div/div[2]/span[2]/button")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[2]/div/div/div/div[1]/div/div")).click(); //点击第一个申办场景“公众买糖场景”
+        //点击第一个申办场景“公众买糖场景”
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[2]/div/div/div/div[1]/div/div")).click();
         Thread.sleep(5000);
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[1]/div[2]/div/div/div[2]/span[2]/span/button")).click(); //点击右上角开始申办按钮
-        driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div[2]/div[4]/div[4]/div/h3")).click(); //点击选择大厅
+        //点击右上角开始申办按钮
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[1]/div[2]/div/div/div[2]/span[2]/span/button")).click();
+        //点击选择大厅
+        driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div[2]/div[4]/div[4]/div/h3")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div[3]/button")).click(); //不选择团队直接点击申办按钮
+        //不选择团队直接点击申办按钮
+        driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div[3]/button")).click();
         Thread.sleep(2000);
 
 
