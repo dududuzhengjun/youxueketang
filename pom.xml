@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.11</version>
+            <version>7.7.0</version>
             <scope>test</scope>
         </dependency>
         <!-- 加入selenium做webUI测试,选用selenium2 -->
