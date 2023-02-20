@@ -25,6 +25,10 @@ public class WanWeb{
 
 
     WebDriver driver=Driver.newInstance();
+    Robot robot = new Robot();
+
+    public WanWeb() throws AWTException {
+    }
 
     @BeforeTest
     public void logIn() throws InterruptedException {
@@ -73,13 +77,13 @@ public class WanWeb{
         Thread.sleep(1500);
         driver.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/div[2]/div[3]/button")).click();
 
-
         Thread.sleep(8000);
         System.out.println("登记业务成功，待填写资料后申办");
 
+
         //填写基本信息
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[3]/div/div/div[1]/div/div/div[1]")).click();
-        Thread.sleep(1000);
+        Thread.sleep(1500);
         //用途
         driver.findElement(By.xpath("//*[@id=\"wanPurposeId\"]/div/div/div[2]")).click();
         Thread.sleep(1500);
@@ -97,17 +101,17 @@ public class WanWeb{
         //手机号整数
         driver.findElement(By.xpath("//*[@id=\"field_4864\"]")).sendKeys("17");
 
-
-
         //点击确定提交基本信息
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         System.out.println("基本信息填写完成");
         Thread.sleep(4000);
 
+
         //设置当事人
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[3]/div/div/div[2]/div/div/div[1]/div[2]/div/span")).click();
         //添加申请人 杜征骏
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[2]/div/div[1]/div/table/tbody/tr/td[3]/span[2]/button[1]")).click();
+        Thread.sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"idType\"]/div/div/div[1]")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("//div[contains(text(),'身份证人像面')]")).click();
@@ -134,7 +138,18 @@ public class WanWeb{
         System.out.println("添加当事人成功");
         Thread.sleep(2000);
 
+
         //上传材料
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[3]/div/div/div[3]/div/div/div[1]/div[2]/div/span")).click();
+        Thread.sleep(1000);
+//        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[1]/div/div[1]/span[2]/div[1]/span/div/button[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[1]/div/div[1]/span[2]/div[1]/span/input")).sendKeys("C:\\Users\\zzsoft\\iCloudDrive\\音乐\\收集\\one love（女声版）.mp3");
+        Thread.sleep(2000);
+        robot.keyPress(KeyEvent.VK_ESCAPE);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[5]/div/div[1]/span[2]/div[1]/span/input")).sendKeys("C:\\Users\\zzsoft\\Pictures\\壁纸\\欢迎乘坐非法运营车辆.png");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[1]/div[2]/div/div/div[2]/span[3]/button")).click();
+        Thread.sleep(2000);
 
 
         //选择模板
@@ -164,6 +179,7 @@ public class WanWeb{
 
         //作废申办业务
         driver.findElement(By.xpath("//*[@id=\"root\"]/div/section/section/main/div[1]/div[2]/div/div/div/div[3]/div/h4/div/button")).click();
+        Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[4]/div/div/div/div[2]/div/div/div[2]/button[2]")).click();
         Thread.sleep(2000);
         System.out.println("作废业务成功");
