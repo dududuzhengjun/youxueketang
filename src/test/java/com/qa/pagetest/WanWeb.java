@@ -189,7 +189,7 @@ public class WanWeb{
 
 
 
-        //封装select对象
+//        封装select对象
 //        Select select = new Select(driver.findElement(By.xpath("//*[@id=\"idType\"]/div/div/div[1]")));
 //        for (WebElement e : select.getOptions())
 //            e.click();
